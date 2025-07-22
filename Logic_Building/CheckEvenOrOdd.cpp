@@ -5,9 +5,9 @@ using namespace std;
 void findByReminder(int n){
 
     if(n%2 == 0){
-        cout<<"Number is even"<<endl;
+        cout<<"\nNumber is even"<<endl;
     }else{
-        cout<<"Number is odd"<<endl;
+        cout<<"\nNumber is odd"<<endl;
     }   
 } 
 
@@ -17,9 +17,9 @@ So, when performing bitwise AND operation with 1, odd numbers give 1,
 and even numbers give 0. */
 bool usingBitwise_AND_Operator(int n){  
     if( n & 1){
-        cout<<"Number is odd"<<endl;
+        cout<<"\nNumber is odd"<<endl;
     }else{
-        cout<<"Number is even"<<endl;
+        cout<<"\nNumber is even"<<endl;
     }
 }
 
@@ -29,8 +29,10 @@ int main (){
     cout<<"Take input : ";
     cin >> num;
 
-    cout<<"Choose method to perfom : ";
-    cin>> option;
+    while (true) {
+        cout << "\nChoose method to perform \n1.Remainder\n2.Bitwise\n3.Exit\n";
+        cout << "You choose option number = ";
+        cin >> option;
 
     switch(option){
         case 1: 
@@ -39,9 +41,10 @@ int main (){
         case 2: 
             usingBitwise_AND_Operator(num);
             break;
-        deafult:
-            cout<<"Invalid Option"<<endl;
-            break;
+        default:
+            cout << "Invalid Option! Exiting..." << endl;
+            return 0;
+        }
     }
-    
+    return 0;
 }
