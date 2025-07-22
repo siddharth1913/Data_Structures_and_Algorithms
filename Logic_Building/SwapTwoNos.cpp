@@ -41,7 +41,7 @@ int main (){
 
     while (true) {
         cout << "\nChoose method to perform \n1.Arithmatic_Operator\n2.Bitwise_Xor\n3.Third_Variable\n4.In_Built_Swap\n5.Exit\n";
-        cout << "You choose option number = ";
+        cout << "\nYou choose option number = ";
         cin >> option;
 
     switch(option){
@@ -58,7 +58,7 @@ int main (){
             In_Built_Swap(num1, num2);
             break;
         default:
-            cout << "Invalid Option! Exiting..." << endl;
+            cout << "\nInvalid Option! Exiting...\n" << endl;
             return 0;
         }
     }
