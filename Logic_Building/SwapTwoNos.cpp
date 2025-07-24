@@ -26,7 +26,6 @@ void Third_Variable(int a, int b)
     b = temp;
     cout<<"After swap : "<< a << " and " << b << endl;
 }
-
 void In_Built_Swap(int a, int b){
     cout<<"Before swap : "<< a << " and " << b << endl;
     swap(a,b);
@@ -36,7 +35,7 @@ void In_Built_Swap(int a, int b){
 int main (){
     cout<<"\nSwap two numbers using multiple approaches\n"<<endl;
     int num1, num2, option;
-    cout<<"Take input of two numbers 
+    cout<<"Take input of two numbers : ";
     cin >> num1 >> num2;
 
     while (true) {
