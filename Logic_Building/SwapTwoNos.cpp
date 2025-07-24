@@ -34,9 +34,9 @@ void In_Built_Swap(int a, int b){
 }
 
 int main (){
-    cout<<"\nSwap two numbers using multiple ways\n"<<endl;
+    cout<<"\nSwap two numbers using multiple approaches\n"<<endl;
     int num1, num2, option;
-    cout<<"Take input of two numbers : ";
+    cout<<"Take input of two numbers 
     cin >> num1 >> num2;
 
     while (true) {
@@ -58,7 +58,7 @@ int main (){
             In_Built_Swap(num1, num2);
             break;
         default:
-            cout << "\nInvalid Option! Exiting...\n" << endl;
+            cout << "\nInvalid Option! Exiting... \n" << endl;
             return 0;
         }
     }
