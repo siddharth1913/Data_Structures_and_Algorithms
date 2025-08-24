@@ -1,5 +1,7 @@
 #include<iostream>
-#include<vector>
+#include <vector>
+#include <algorithm>
+
 using namespace std;
 //====================================================================
 void ReverseInteger(){
@@ -82,6 +84,70 @@ string ReverseVowels() {
 
 //====================================================================
 
+
+void FindMaxAverage() {
+    int n;
+    int k;
+    cout<<"Enter Size : ";
+    cin >> n;
+    cout<<"Enter Window Size : ";
+    cin >> k;
+
+    vector<int> nums(n);
+    cout<<"\nEnter Array elements : ";
+    for(int i=0;i<n;i++){
+        cin>>nums[i];
+    }
+
+    int left = 0;
+    int right = left+k-1;
+    double maxAvg = 0;
+    double currentSum = 0;
+    for(int i=0 ; i < k; i++){
+        currentSum += nums[i];
+    }
+    maxAvg = currentSum;
+    for(int i = k; i < nums.size(); i++){
+        currentSum = currentSum + nums[i] - nums[i-k];
+        if(currentSum >= maxAvg){
+            maxAvg = currentSum;
+        }
+    }
+    cout << "Maximum average of subarray : "<< maxAvg/k;
+}
+
+void MaxFrequency() {
+    int n;
+    int k;
+    cout<<"Enter Size : ";
+    cin >> n;
+    cout<<"Enter number of operations to perform : ";
+    cin >> k;
+
+    vector<int> nums(n);
+    cout<<"\nEnter Array elements : ";
+    for(int i=0;i<n;i++){
+        cin>>nums[i];
+    }
+    std::sort(nums.begin(), nums.end());
+        
+    long currentSum = 0;
+    int left = 0;
+    int maxFrequency = 0;
+    for(int right = 0; right < nums.size(); right++){
+        currentSum += nums[right];
+        long cost = (long)nums[right] * (right-left + 1) - currentSum;
+        while(cost > k){
+            currentSum -= nums[left];
+            left++;
+            cost = (long)nums[right] * (right-left+1) - currentSum;
+        }
+        maxFrequency = max(maxFrequency,(right-left+1));
+    }
+    cout << "Maximum average of subarray : "<< maxFrequency;
+    
+}
+
 int main(){
     cout <<"\n======= Welcome to Array problems =======" << endl;
     int choice;
@@ -90,7 +156,7 @@ int main(){
     do {
         cout << "\n--------Choose what to perform---------\n";
         cout << "=========================================" << endl;
-        cout << "1.[ 7. Reverse Integer] \n2.[ 136. Single Number - Bitwise_Xor] \n3.[ 345. Reverse Vowels in a string]\n4.X \n5.Exit\n";
+        cout << "1.[ 7. Reverse Integer] \n2.[ 136. Single Number - Bitwise_Xor] \n3.[ 345. Reverse Vowels in a string]\n4.[ 643. Maximum Average Subarray I]\n5.[ 1838. Frequency of the Most Frequent Element]\n6.X \n7.Exit\n";
         cout << "=========================================" << endl;
         cout << "\nYou choose option number = ";
         
@@ -107,6 +173,12 @@ int main(){
                 ReverseVowels();
                 break;
             case 4:
+                FindMaxAverage();
+                break;
+            case 5:
+                MaxFrequency();
+                break;
+            case 6:
                 cout << "Exiting the program. Goodbye!" << endl;
                 return 0;
             default:
